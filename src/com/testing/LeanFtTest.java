@@ -186,7 +186,7 @@ public class LeanFtTest extends UnitTestClassBase {
 			.attachedText("Devices").build()).select("Devices;Servers;All Managed Servers");
         Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 			.title("HPE Server Automation - 192.168.178.30").build()).describe(Table.class, new TableDescription.Builder()
-			.objectName("server-table").build()).selectRows(1); 
+			.objectName("server-table").build()).selectRows(0); 
        
        //Attach the Policy 
         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}  
