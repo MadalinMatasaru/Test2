@@ -22,7 +22,6 @@ public static void searchTableDoubleClick(Table servers, String searchString) th
 		 if (servercell.getValue().toString().equals(searchString)) {
 			 servercell.doubleClick();
 		}
-		 else  System.out.println("Not Found");
 	 }
     }
 
@@ -37,7 +36,6 @@ public static void searchTableRightClick(Table servers, String searchString) thr
 		 if (servercell.getValue().toString().equals(searchString)) {
 			 servercell.click(MouseButton.RIGHT);
 		}
-		 else  System.out.println("Not Found");
 	 }
     }
 
