@@ -13,6 +13,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 import unittesting.UnitTestClassBase;
 
@@ -41,6 +43,7 @@ import com.hp.lft.sdk.stdwin.EditorDescription;
 import com.utils.GeneralUtils;
 import com.utils.TableUtils;
 
+
 public class FTest extends UnitTestClassBase {
 	Properties prop = new Properties();
 	InputStream inputStream;
@@ -50,7 +53,6 @@ public class FTest extends UnitTestClassBase {
 //				String user;
 //				String password;
 				String policyserver;
-
 	public FTest() {
 		//Change this constructor to private if you supply your own public constructor
 	}
