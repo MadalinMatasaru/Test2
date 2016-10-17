@@ -18,7 +18,7 @@ public static void searchTableDoubleClick(Table servers, String searchString) th
 {
     for (TableRow serverrows:servers.getRows()){
 	 for (TableCell servercell:serverrows.getCells() ){
-		 System.out.println(servercell.getValue().toString());
+
 		 if (servercell.getValue().toString().equals(searchString)) {
 			 servercell.doubleClick();
 		}
@@ -32,7 +32,7 @@ public static void searchTableRightClick(Table servers, String searchString) thr
 {
     for (TableRow serverrows:servers.getRows()){
 	 for (TableCell servercell:serverrows.getCells() ){
-		 System.out.println(servercell.getValue().toString());
+	
 		 if (servercell.getValue().toString().equals(searchString)) {
 			 servercell.click(MouseButton.RIGHT);
 		}

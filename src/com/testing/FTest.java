@@ -91,20 +91,20 @@ public class FTest extends UnitTestClassBase {
 			.label("Library").build()).click();
 		 afterLoginWindow.describe(TreeView.class, new TreeViewDescription.Builder()
 			.attachedText("Library").build()).select("By Type;Packages;Red Hat;Red Hat Enterprise Linux Server 5");
-         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}  
+        Thread.sleep(5000); 
          afterLoginWindow.describe(Menu.class, new MenuDescription.Builder()
 			.label("Actions").build()).click();
          try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
          afterLoginWindow.describe(Menu.class, new MenuDescription.Builder()
 			.label("Actions").build()).selectSubMenu("Import Software...");
-         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(5000); 
          
          // Import a dummy .zip file - the Browse buttons are identical so that we need to use Location property to distinguish them
          // also close all the modal windows that are being opened
         
          afterLoginWindow.describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
   			.attachedText("Browse...").index(0).build()).click();
-         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(5000); 
          afterLoginWindow.describe(Dialog.class, new DialogDescription.Builder()
 			.title("Software Imports").build()).describe(Dialog.class, new DialogDescription.Builder()
 			.title("Open").build()).describe(Editor.class, new EditorDescription.Builder()
@@ -120,28 +120,28 @@ public class FTest extends UnitTestClassBase {
 			.label("Import").build()).click();
          afterLoginWindow.describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 			.label("Replace").build()).click();
-         try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(3000); 
          Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 			.title("Software Imports").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 			.label("Close").build()).click();
-         try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(3000); 
          
          //Create a new Software Policy - select the Software Policy target from the tree and then Actions - New menu
          afterLoginWindow.describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 			.label("Library").build()).click();
          afterLoginWindow.describe(TreeView.class, new TreeViewDescription.Builder()
 			.attachedText("Library").build()).select("By Type;Software Policies;Red Hat;Red Hat Enterprise Linux Server 5");
-         try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(3000); 
          afterLoginWindow.describe(Menu.class, new MenuDescription.Builder()
 			.label("Actions").build()).click();
-         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(5000); 
          afterLoginWindow.describe(Menu.class, new MenuDescription.Builder()
 			.label("Actions").build()).selectSubMenu("New...");
-         try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(3000); 
          Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 			.title("Software Policy: New Software Policy*").build()).describe(Editor.class, new EditorDescription.Builder()
 			.attachedText("Name:").build()).setText("test policy");
-         try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(3000); 
          testPolicyWindow.describe(TreeView.class, new TreeViewDescription.Builder()
 			.attachedText("Views").build()).select("Software Policy:;Policy Items");
          
@@ -172,13 +172,13 @@ public class FTest extends UnitTestClassBase {
 			.objectName("server-table").build()).selectRows(0); 
         
         //Attach the Policy 
-         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}  
+         Thread.sleep(5000);   
          afterLoginWindow.describe(Menu.class, new MenuDescription.Builder()
 			.label("Actions").build()).click();
-         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(5000); 
          afterLoginWindow.describe(Menu.class, new MenuDescription.Builder()
 			.label("Actions").build()).selectSubMenu("Attach;Software Policy...");
-         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(5000); 
 		 
 		 
 		 Table table =Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
@@ -192,7 +192,7 @@ public class FTest extends UnitTestClassBase {
          Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 			.title("Remediate").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 			.label("Start Job").build()).click();
-         try {Thread.sleep(15000);} catch (InterruptedException e) {e.printStackTrace();}
+         Thread.sleep(15000); 
  
          
          Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
@@ -209,14 +209,14 @@ public class FTest extends UnitTestClassBase {
 		.objectName("server-table").build()); 
 		
 		TableUtils.searchTableDoubleClick(servers, policyserver);
-		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		Thread.sleep(3000); 
 		
 		Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder().title("Server: tv-355.ta.opsware.com").build())
 		 .describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder().label("Management Policies").build()).click();
 		 Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 			.title("Server: tv-355.ta.opsware.com").build()).describe(TreeView.class, new TreeViewDescription.Builder()
 			.attachedText("Management Policies").build()).select("Management Policies;Software Policies");	
-		 try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		 Thread.sleep(3000); 
 		 
      Table Policies = Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 		.title("Server: tv-355.ta.opsware.com").build()).describe(Table.class, new TableDescription.Builder()
@@ -227,7 +227,7 @@ public class FTest extends UnitTestClassBase {
 				 Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 					.title("Server: tv-355.ta.opsware.com").build()).describe(Menu.class, new MenuDescription.Builder()
 					.label("Actions").build()).click();
-		         try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+				 Thread.sleep(5000); 
 		         Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 					.title("Server: tv-355.ta.opsware.com").build()).describe(Menu.class, new MenuDescription.Builder()
 					.label("Actions").build()).selectSubMenu("Uninstall Software...");
@@ -236,7 +236,7 @@ public class FTest extends UnitTestClassBase {
 		         Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 					.title("Uninstall Software").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 					.label("Start Job").build()).click();
-					try {Thread.sleep(20000);} catch (InterruptedException e) {e.printStackTrace();}
+		            Thread.sleep(20000); 
 					Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 					.title(new RegExpProperty("Uninstall Software.*")).build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 					.label("Close").build()).click();			
