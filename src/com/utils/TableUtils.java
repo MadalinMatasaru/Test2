@@ -13,6 +13,7 @@ import com.hp.lft.sdk.java.Window;
 
 public class TableUtils {
 
+	// This function searches for a Text in a Table and when it finds it executes a DoubleClick 
 public static void searchTableDoubleClick(Table servers, String searchString) throws Exception
 {
     for (TableRow serverrows:servers.getRows()){
@@ -27,6 +28,7 @@ public static void searchTableDoubleClick(Table servers, String searchString) th
 
 }
 
+//This function searches for a Text in a Table and when it finds it executes a RightClick 
 public static void searchTableRightClick(Table servers, String searchString) throws Exception
 {
     for (TableRow serverrows:servers.getRows()){

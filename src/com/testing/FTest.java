@@ -38,24 +38,19 @@ import com.hp.lft.sdk.java.UiObject;
 import com.hp.lft.sdk.java.UiObjectDescription;
 import com.hp.lft.sdk.java.Window;
 import com.hp.lft.sdk.stdwin.EditorDescription;
+import com.utils.GeneralUtils;
 import com.utils.TableUtils;
 
 public class FTest extends UnitTestClassBase {
 	Properties prop = new Properties();
 	InputStream inputStream;
 	String propFileName = "config.properties";
-	// get the property value and print it out
-				String server;
-				String user;
-				String password;
 	
-//	JsonParser parser = new JsonParser();
-//	Object obj = parser.parse(new FileReader("C:\\Users\\mapt\\Desktop\\Test.txt"));
-//	JsonObject jsonObject = (JsonObject) obj;
-//	String server = jsonObject.get("server").toString();
-//	String user = jsonObject.get("user").toString(); 
-//	String password = jsonObject.get("password").toString();
-	
+//				String server;
+//				String user;
+//				String password;
+				String policyserver;
+
 	public FTest() {
 		//Change this constructor to private if you supply your own public constructor
 	}
@@ -78,30 +73,13 @@ public class FTest extends UnitTestClassBase {
 		inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 		prop.load(inputStream);
 		
-		server = prop.getProperty("server");
-		user = prop.getProperty("user");
-		password = prop.getProperty("password");
-		 
-		
-		//Start the application
-	     Window saWin =  Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation Client Login").build());
-	     
-	     //Login into the application and wait 20 seconds for the Server Automation app to load
-	     saWin.describe(List.class, new ListDescription.Builder().attachedText("Core Server:").build()).select(server);
-	     saWin.describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("Continue").build()).click();
-	     saWin.describe(Editor.class, new EditorDescription.Builder()
-			.attachedText("User Name:").build()).setText(user);
-	     saWin.describe(Editor.class, new EditorDescription.Builder()
-			.attachedText("Password:").build()).setText(password);
-	     saWin.describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("Log In").build()).click();
-         try {Thread.sleep(20000);} catch (InterruptedException e) {e.printStackTrace();}
+		GeneralUtils generals = new GeneralUtils();
+		generals.Login();
 	}
 	@Test
 	public void test() throws Exception {
 		 //Select Library and then Import Software form the Actions menu      
+		policyserver = prop.getProperty("policyserver");
 		
 		Window afterLoginWindow =  Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 		.title("HPE Server Automation - 192.168.178.30").build());
@@ -215,29 +193,7 @@ public class FTest extends UnitTestClassBase {
 			.title("Remediate").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 			.label("Start Job").build()).click();
          try {Thread.sleep(15000);} catch (InterruptedException e) {e.printStackTrace();}
-       //  Verify.areEqual("Succeedeed", )
-//         UiObjectDescription test = new UiObjectDescription.Builder().attachedText("Job Status")
-//        		 .nativeClass("com.opsware.ngui.apppolicy.task.RemediatePoliciesTask$2").build();
-        
-    
-         
-//         UiObject tabel = Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-//			.title(new RegExpProperty("Remediate.*")).build()).describe(UiObject.class, new UiObjectDescription.Builder()
-//			.nativeClass("com.opsware.ngui.apppolicy.task.RemediatePoliciesTask$2").build());
-//         
-
-//         //String bitmapFolder = ("@C:\\Users\\mapt\\Desktop\\Images\\Reference1.bmp");
-//        		 try {
-//					RenderedImage expectedImage = ImageIO.read(new File("C:\\Users\\mapt\\Desktop\\Images\\Reference1.PNG"));
-//					if (tabel.verifyImageMatch(expectedImage))
-//						System.out.println("BINGO!!!!");
-//							;
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-        		 
-         
+ 
          
          Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 			.title(new RegExpProperty("Remediate.*")).build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
@@ -252,7 +208,7 @@ public class FTest extends UnitTestClassBase {
 		Table servers = afterLoginWindow.describe(Table.class, new TableDescription.Builder()
 		.objectName("server-table").build()); 
 		
-		TableUtils.searchTableDoubleClick(servers,"tv-355.ta.opsware.com");
+		TableUtils.searchTableDoubleClick(servers, policyserver);
 		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
 		
 		Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder().title("Server: tv-355.ta.opsware.com").build())
