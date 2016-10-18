@@ -81,7 +81,10 @@ public class FTest extends UnitTestClassBase {
 	}
 	@Test
 	public void test() throws Exception {
-		 //Select Library and then Import Software form the Actions menu      
+		 //Select Library and then Import Software form the Actions menu   
+		ProcessBuilder pb = new ProcessBuilder("c:\\Program Files\\Java\\jdk1.8.0_101\\bin\\javac.exe");
+        pb.start();
+        
 		policyserver = prop.getProperty("policyserver");
 		
 		Window afterLoginWindow =  Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
