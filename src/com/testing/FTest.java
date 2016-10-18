@@ -45,6 +45,7 @@ import com.utils.TableUtils;
 
 
 public class FTest extends UnitTestClassBase {
+	
 	Properties prop = new Properties();
 	InputStream inputStream;
 	String propFileName = "config.properties";

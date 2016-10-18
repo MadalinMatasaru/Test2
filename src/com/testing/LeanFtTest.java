@@ -166,54 +166,60 @@ public class LeanFtTest extends UnitTestClassBase {
 			.title("Software Policy: test policy*").build()).describe(Editor.class, new com.hp.lft.sdk.java.EditorDescription.Builder()
 			.tagName("JTextField").nativeClass("javax.swing.JTextField").build()).setText("test");  
         Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("Software Policy: test policy*").build()).describe(Table.class, new TableDescription.Builder()
-			.objectName("com.opsware.ngui.library.ui.panels.LibraryFilterPanel").build()).selectRows(0);
+		.title("HPE Server Automation - 192.168.178.30").build()).close();
         Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("Software Policy: test policy*").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("Select").build()).click();
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("Software Policy: test policy*").build()).close();
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("Software Policy: test policy*").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("No").build()).click();
-       
-       //Select the managed server to which we want to attach the policy 
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation - 192.168.178.30").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("Devices").build()).click();
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation - 192.168.178.30").build()).describe(TreeView.class, new TreeViewDescription.Builder()
-			.attachedText("Devices").build()).select("Devices;Servers;All Managed Servers");
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation - 192.168.178.30").build()).describe(Table.class, new TableDescription.Builder()
-			.objectName("server-table").build()).selectRows(0); 
-       
-       //Attach the Policy 
-        try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}  
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation - 192.168.178.30").build()).describe(Menu.class, new MenuDescription.Builder()
-			.label("Actions").build()).click();
-        try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation - 192.168.178.30").build()).describe(Menu.class, new MenuDescription.Builder()
-			.label("Actions").build()).selectSubMenu("Attach;Software Policy...");
-        try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation - 192.168.178.30").build()).describe(Table.class, new TableDescription.Builder()
-			.objectName("com.opsware.ngui.library.ui.panels.LibraryFilterPanel").build()).selectRows(7);
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("HPE Server Automation - 192.168.178.30").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("Attach").build()).click();
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title("Remediate").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("Start Job").build()).click();
-        try {Thread.sleep(15000);} catch (InterruptedException e) {e.printStackTrace();}
+		.title("HPE Server Automation - 192.168.178.30").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
+		.label("Yes").build()).click();	
+        
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("Software Policy: test policy*").build()).describe(Table.class, new TableDescription.Builder()
+//			.objectName("com.opsware.ngui.library.ui.panels.LibraryFilterPanel").build()).selectRows(0);
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("Software Policy: test policy*").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
+//			.label("Select").build()).click();
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("Software Policy: test policy*").build()).close();
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("Software Policy: test policy*").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
+//			.label("No").build()).click();
+//       
+//       //Select the managed server to which we want to attach the policy 
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("HPE Server Automation - 192.168.178.30").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
+//			.label("Devices").build()).click();
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("HPE Server Automation - 192.168.178.30").build()).describe(TreeView.class, new TreeViewDescription.Builder()
+//			.attachedText("Devices").build()).select("Devices;Servers;All Managed Servers");
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("HPE Server Automation - 192.168.178.30").build()).describe(Table.class, new TableDescription.Builder()
+//			.objectName("server-table").build()).selectRows(0); 
+//       
+//       //Attach the Policy 
+//        try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}  
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("HPE Server Automation - 192.168.178.30").build()).describe(Menu.class, new MenuDescription.Builder()
+//			.label("Actions").build()).click();
+//        try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("HPE Server Automation - 192.168.178.30").build()).describe(Menu.class, new MenuDescription.Builder()
+//			.label("Actions").build()).selectSubMenu("Attach;Software Policy...");
+//        try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("HPE Server Automation - 192.168.178.30").build()).describe(Table.class, new TableDescription.Builder()
+//			.objectName("com.opsware.ngui.library.ui.panels.LibraryFilterPanel").build()).selectRows(7);
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title("HPE Server Automation - 192.168.178.30").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
+//			.label("Attach").build()).click();
 //        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
 //			.title("Remediate").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
+//			.label("Start Job").build()).click();
+//        try {Thread.sleep(15000);} catch (InterruptedException e) {e.printStackTrace();}
+////        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+////			.title("Remediate").build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
+////			.label("Close").build()).click();
+//        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
+//			.title(new RegExpProperty("Remediate.*")).build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 //			.label("Close").build()).click();
-        Desktop.describe(Window.class, new com.hp.lft.sdk.java.WindowDescription.Builder()
-			.title(new RegExpProperty("Remediate.*")).build()).describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
-			.label("Close").build()).click();
 	}
 
 }
