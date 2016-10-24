@@ -6,7 +6,8 @@ import org.junit.runners.Suite;
 
 @Suite.SuiteClasses({
    FTest.class,
-   LeanFtTest.class
+   LeanFtTest.class,
+   VerifyPlatforms.class
 })
 
 public class TestSuite {   

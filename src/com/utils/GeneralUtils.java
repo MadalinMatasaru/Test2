@@ -43,6 +43,7 @@ public class GeneralUtils {
 	     saWin.describe(List.class, new ListDescription.Builder().attachedText("Core Server:").build()).select(server);
 	     saWin.describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 			.label("Continue").build()).click();
+	     try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
 	     saWin.describe(Editor.class, new EditorDescription.Builder()
 			.attachedText("User Name:").build()).setText(user);
 	     saWin.describe(Editor.class, new EditorDescription.Builder()
