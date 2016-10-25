@@ -173,7 +173,8 @@ public class VerifyPlatforms extends UnitTestClassBase {
 		nodes.add(libraryPackages.getNode("By Type;Packages;XenServer;Citrix XenServer 5"));
 		nodes.add(libraryPackages.getNode("By Type;Packages;XenServer;Citrix XenServer 6"));
 		
-		System.out.println(nodes.containsAll(new Platforms().platforms));
+		if (nodes.containsAll(new Platforms().platforms) == false)
+		System.out.println("The 2 lists of platforms do not match");
 	
 		
 //		DefaultMutableTreeNode root = (DefaultMutableTreeNode)libraryPackages.getModel().getRoot();
@@ -204,6 +205,11 @@ public class VerifyPlatforms extends UnitTestClassBase {
 		afterLoginWindow.close();
 		afterLoginWindow.describe(Button.class, new com.hp.lft.sdk.java.ButtonDescription.Builder()
 		.label("Yes").build()).click();	
+	}
+
+	private void If(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
