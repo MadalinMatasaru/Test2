@@ -10,6 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -176,6 +177,7 @@ public class VerifyPlatforms extends UnitTestClassBase {
 		if (nodes.containsAll(new Platforms().platforms) == false)
 		System.out.println("The 2 lists of platforms do not match");
 	
+		assert(nodes.containsAll(new Platforms().platforms) == false);
 		
 //		DefaultMutableTreeNode root = (DefaultMutableTreeNode)libraryPackages.getModel().getRoot();
 //		    Enumeration e = root.preorderEnumeration();
